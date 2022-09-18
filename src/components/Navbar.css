@@ -1,0 +1,117 @@
+@import url('../custom.css');
+
+nav {
+  background-color: hsl(var(--orange-secondary));
+  box-shadow: var(--light-shadow);
+}
+
+.nav-center {
+  position: relative;
+}
+
+.nav-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.6rem;
+}
+
+.nav-header__toggler {
+  font-size: 3.5rem;
+  color: var(--black);
+  background: transparent;
+  border-color: transparent;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  margin-left: 1.6rem;
+}
+
+.nav-header__toggler:hover,
+.nav-user a:hover {
+  color: hsl(var(--orange-primary));
+}
+
+.nav-links a {
+  color: hsl(var(--dark-grayish-blue));
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  display: block;
+  padding: 0.8rem 1.6rem;
+  transition: var(--mainTransition);
+}
+
+.nav-links a:hover {
+  background: hsl(var(--orange-primary), 0.1);
+  color: hsl(var(--black));
+  padding-left: 1.5rem;
+}
+
+.nav-user {
+  position: absolute;
+  top: 1rem;
+  right: 6rem;
+}
+
+.nav-user ul {
+  display: flex;
+}
+
+.nav-user li {
+  padding: 0.8rem 1.6rem;
+}
+
+.nav-user a {
+  font-size: 3rem;
+  color: hsl(var(--black));
+  transition: var(--mainTransition);
+}
+
+.nav-links__container {
+  height: 0;
+  overflow: hidden;
+  transition: var(--mainTransition);
+}
+
+@media screen and (min-width: 800px) {
+  nav {
+    padding-inline: 2rem;
+  }
+
+  .nav-center {
+    max-width: 1170px;
+    margin: 0 auto;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .nav-header__toggler {
+    display: none;
+  }
+
+  .nav-links__container {
+    height: auto !important;
+  }
+
+  .nav-links {
+    display: flex;
+  }
+
+  .nav-links a {
+    padding: 0;
+    margin: 0 1rem;
+  }
+
+  .nav-links a:hover {
+    padding: 0;
+    background: transparent;
+    color: hsl(var(--orange-primary));
+  }
+
+  .nav-user {
+    position: static;
+  }
+}

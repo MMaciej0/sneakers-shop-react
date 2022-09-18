@@ -1,0 +1,21 @@
+:root {
+  /* colors primary*/
+  --orange-primary: 26, 100%, 55%;
+  --orange-secondary: 25, 100%, 94%;
+  /* colors neutral */
+  --dark-blue: 220, 13%, 13%;
+  --dark-grayish-blue: 219, 9%, 45%;
+  --grayish-blue: 220, 14%, 75%;
+  --light-graish-blue: 223, 64%, 98%;
+  --white: 0, 0%, 100%;
+  --black: 0, 0%, 0%;
+  /* other */
+  --main-spacing: 0.2rem;
+  --mainTransition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
