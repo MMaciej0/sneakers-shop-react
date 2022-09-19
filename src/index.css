@@ -19,6 +19,7 @@ body {
   color: hsl(var(--dark-blue));
   line-height: 1.5;
   font-size: 1.6rem;
+  height: 100vh;
 }
 ul {
   list-style-type: none;
