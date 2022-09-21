@@ -5,67 +5,41 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { HiOutlineUserCircle } from 'react-icons/hi';
 
 function Navbar() {
-  const [showLinks, setShowLinks] = useState(false);
-  const linksContainerRef = useRef(null);
-  const linksRef = useRef(null);
-
-  useEffect(() => {
-    const linksHeight = linksRef.current.getBoundingClientRect().height;
-    if (showLinks) {
-      linksContainerRef.current.style.height = `${linksHeight}px`;
-    } else {
-      linksContainerRef.current.style.height = '0px';
-    }
-  }, [showLinks]);
-
   return (
-    <nav>
+    <nav className="nav">
       <div className="nav-center">
         <div className="nav-header">
           <a href="#">
             <img src="./images/logo.svg" alt="LOGO" />
           </a>
-          <button
-            className="nav-header__toggler"
-            onClick={() => setShowLinks(!showLinks)}
-          >
+          <button className="nav-header__toggler">
             <CgMenuGridR />
           </button>
         </div>
-        <div className="nav-links__container" ref={linksContainerRef}>
-          {/* to change when implement react router */}
-          <ul className="nav-links" ref={linksRef}>
-            <li>
-              <a href="#">Him</a>
-            </li>
-            <li>
-              <a href="#">Her</a>
-            </li>
-            <li>
-              <a href="#">Newest</a>
-            </li>
-            <li>
-              <a href="#">Brands</a>
-            </li>
-            <li>
-              <a href="#">Sale</a>
-            </li>
-          </ul>
-        </div>
-        <div className="nav-user">
-          <ul>
-            <li>
-              <a href="#">
-                <AiOutlineShoppingCart />
-              </a>
-            </li>
-            <li>
-              <a href="#">
+        <ul className="nav-links">
+          <li>
+            <button className="link-btn">newest</button>
+          </li>
+          <li>
+            <button className="link-btn">brands</button>
+          </li>
+          <li>
+            <button className="link-btn">sale</button>
+          </li>
+        </ul>
+        <ul className="nav-user">
+          <li>
+            <button className="cart">
+              <AiOutlineShoppingCart />
+            </button>
+          </li>
+          <li>
+            {/* <a href="#">
                 <HiOutlineUserCircle />
-              </a>
-            </li>
-          </ul>
-        </div>
+              </a> */}
+            <button className="login">Sign In</button>
+          </li>
+        </ul>
       </div>
     </nav>
   );
