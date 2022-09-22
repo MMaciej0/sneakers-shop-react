@@ -3,8 +3,19 @@ import './Navbar.css';
 import { CgMenuGridR } from 'react-icons/cg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import { useGlobalContext } from '../context';
 
 function Navbar() {
+  const { openSidebar, openSubmenu } = useGlobalContext();
+
+  const displaySubmenu = (e) => {
+    const btnText = e.target.textContent;
+    const tempBtn = e.target.getBoundingClientRect();
+    const center = (tempBtn.right + tempBtn.left) / 2;
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(btnText, { center, bottom });
+  };
+
   return (
     <nav className="nav">
       <div className="nav-center">
@@ -12,19 +23,23 @@ function Navbar() {
           <a href="#">
             <img src="./images/logo.svg" alt="LOGO" />
           </a>
-          <button className="nav-header__toggler">
+          <button className="nav-header__toggler" onClick={openSidebar}>
             <CgMenuGridR />
           </button>
         </div>
         <ul className="nav-links">
           <li>
-            <button className="link-btn">newest</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              categories
+            </button>
           </li>
           <li>
-            <button className="link-btn">brands</button>
+            <button className="link-btn" onMouseOver={displaySubmenu}>
+              brands
+            </button>
           </li>
           <li>
-            <button className="link-btn">sale</button>
+            <button className="link-btn">HOT DROPS</button>
           </li>
         </ul>
         <ul className="nav-user">

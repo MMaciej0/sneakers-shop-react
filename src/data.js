@@ -1,9 +1,11 @@
+import { GiRunningShoe } from 'react-icons/gi';
+
 const data = {
   products: [
     {
       _id: '1',
       name: 'REPOSTO - Trainers',
-      category: 'Sport',
+      category: 'sport',
       image: [
         '/images/product-1-1.jpg',
         '/images/product-1-2.webp',
@@ -29,11 +31,12 @@ const data = {
         { size: 45, qty: 3 },
       ],
       adding_date: '2022/01/02',
+      onSale: 'true',
     },
     {
       _id: '2',
       name: 'CROCOS - Trainers',
-      category: 'Sport',
+      category: 'business',
       image: ['/images/product-2.jpg'],
       price: 117,
       brand: 'Lacoste',
@@ -49,11 +52,12 @@ const data = {
         { size: 44, qty: 5 },
       ],
       adding_date: '2021/12/02',
+      onSale: 'false',
     },
     {
       _id: '3',
       name: 'XT-WINGS 2 UNISEX - Trainers',
-      category: 'Sport',
+      category: 'outdoor',
       image: ['/images/product-3.jpg'],
       price: 129,
       brand: 'Salomon',
@@ -69,11 +73,12 @@ const data = {
         { size: 44, qty: 5 },
       ],
       adding_date: '2021/11/02',
+      onSale: 'false',
     },
     {
       _id: '4',
       name: 'MULTIX UNISEX - Trainers',
-      category: 'Sport',
+      category: 'casual',
       image: ['/images/product-4.jpg'],
       price: 89,
       brand: 'adidas',
@@ -89,11 +94,12 @@ const data = {
         { size: 44, qty: 5 },
       ],
       adding_date: '2021/10/02',
+      onSale: 'true',
     },
     {
       _id: '5',
       name: 'NUCLEUS - Trainers',
-      category: 'Sport',
+      category: 'sport',
       image: ['/images/product-5.jpg'],
       price: 40,
       brand: 'Puma',
@@ -109,11 +115,12 @@ const data = {
         { size: 44, qty: 5 },
       ],
       adding_date: '2021/09/02',
+      onSale: 'true',
     },
     {
       _id: '6',
       name: 'SUPER DELUX - Trainers',
-      category: 'Sport',
+      category: 'premium',
       image: ['/images/product-6.jpg'],
       price: 149,
       brand: 'EA7 Emporio Armani',
@@ -129,6 +136,34 @@ const data = {
         { size: 44, qty: 5 },
       ],
       adding_date: '2022/02/02',
+      onSale: 'false',
+    },
+  ],
+  sublinks: [
+    {
+      page: 'categories',
+      links: [
+        { label: 'sport', icon: <GiRunningShoe />, url: '/products' },
+        { label: 'business', icon: <GiRunningShoe />, url: '/products' },
+        { label: 'outdoor', icon: <GiRunningShoe />, url: '/products' },
+        { label: 'casual', icon: <GiRunningShoe />, url: '/products' },
+        { label: 'premium', icon: <GiRunningShoe />, url: '/products' },
+      ],
+    },
+    {
+      page: 'brands',
+      links: [
+        { label: 'nike', img: '/images/nike-logo.webp', url: '/products' },
+        { label: 'lacoste', img: '/images/lacoste-logo.jpg', url: '/products' },
+        { label: 'adidas', img: '/images/adidas-logo.png', url: '/products' },
+        { label: 'puma', img: '/images/puma-logo.jpg', url: '/products' },
+        { label: 'salomon', img: '/images/salomon-logo.svg', url: '/products' },
+        {
+          label: 'EA7 Emporio Armani',
+          img: '/images/emporio-armani-logo.png',
+          url: '/products',
+        },
+      ],
     },
   ],
 };

@@ -1,7 +1,7 @@
 @import url('../custom.css');
 
 .submenu {
-  background: var(--clr-white);
+  background: white;
   box-shadow: var(--dark-shadow);
   position: absolute;
   top: 4rem;
@@ -11,7 +11,7 @@
   display: none;
   padding: 2rem;
   border-radius: var(--radius);
-  transition: var(--transition);
+  transition: var(--mainTransition);
 }
 .submenu::before {
   content: '';
@@ -20,7 +20,7 @@
   height: 0;
   border-left: 5px solid transparent;
   border-right: 5px solid transparent;
-  border-bottom: 5px solid var(--clr-white);
+  border-bottom: 5px solid white;
   position: absolute;
   top: -5px;
   left: 50%;
