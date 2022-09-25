@@ -101,11 +101,11 @@
 
   .nav-links li {
     height: 100%;
-    padding-inline: 1.6rem;
   }
 
   .link-btn {
     height: 100%;
+    padding-inline: 1.6rem;
     background: transparent;
     border-color: transparent;
     font-size: 1.8rem;

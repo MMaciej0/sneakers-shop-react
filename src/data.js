@@ -82,7 +82,7 @@ const data = {
       image: ['/images/product-4.jpg'],
       price: 89,
       brand: 'adidas',
-      brand_logo: '/images/adidas-logo.png',
+      brand_logo: '/images/adidas-logo.svg',
       color: 'gray',
       rating: 3.5,
       numReviews: 345,
@@ -155,11 +155,11 @@ const data = {
       links: [
         { label: 'nike', img: '/images/nike-logo.webp', url: '/products' },
         { label: 'lacoste', img: '/images/lacoste-logo.jpg', url: '/products' },
-        { label: 'adidas', img: '/images/adidas-logo.png', url: '/products' },
+        { label: 'adidas', img: '/images/adidas-logo.svg', url: '/products' },
         { label: 'puma', img: '/images/puma-logo.jpg', url: '/products' },
         { label: 'salomon', img: '/images/salomon-logo.svg', url: '/products' },
         {
-          label: 'EA7 Emporio Armani',
+          label: 'EA7',
           img: '/images/emporio-armani-logo.png',
           url: '/products',
         },

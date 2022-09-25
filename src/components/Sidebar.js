@@ -2,6 +2,7 @@ import React from 'react';
 import { FaTimes } from 'react-icons/fa';
 import { useGlobalContext } from '../context';
 import './Sidebar.css';
+import products from '../data';
 
 function Sidebar() {
   const { showSidebar, closeSidebar } = useGlobalContext();
@@ -14,7 +15,27 @@ function Sidebar() {
         <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
         </button>
-        <div className="sidebar-links"></div>
+        <div className="sidebar-links">
+          {products.sublinks.map((item, index) => {
+            const { links, page } = item;
+            return (
+              <article key={index}>
+                <h4>{page}</h4>
+                <div className="sidebar-sublinks">
+                  {links.map((link, index) => {
+                    const { url, icon, img, label } = link;
+                    return (
+                      <a href={url} key={index}>
+                        {icon || <img src={img} alt={label} />}
+                        {label}
+                      </a>
+                    );
+                  })}
+                </div>
+              </article>
+            );
+          })}
+        </div>
       </div>
     </aside>
   );

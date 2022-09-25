@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
+import { useGlobalContext } from '../context';
 import './Slider.css';
 
 const desktopSettings = {
@@ -21,6 +22,7 @@ const mobileSettings = {
 };
 
 function Carousel({ slides }) {
+  const { closeSubmenu } = useGlobalContext();
   const [isDesktop, setIsDesktop] = useState(window.innerWidth);
   const [settings, setSettings] = useState({});
 
@@ -39,7 +41,7 @@ function Carousel({ slides }) {
   }, [isDesktop]);
 
   return (
-    <section className="slider">
+    <section className="slider" onMouseOver={closeSubmenu}>
       <Slider {...settings}>
         {slides.map((slide) => {
           const { id, image, title, btn } = slide;

@@ -6,7 +6,7 @@ import { HiOutlineUserCircle } from 'react-icons/hi';
 import { useGlobalContext } from '../context';
 
 function Navbar() {
-  const { openSidebar, openSubmenu } = useGlobalContext();
+  const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
 
   const displaySubmenu = (e) => {
     const btnText = e.target.textContent;
@@ -16,8 +16,17 @@ function Navbar() {
     openSubmenu(btnText, { center, bottom });
   };
 
+  const handleSubmenu = (e) => {
+    if (
+      !e.target.classList.contains('link-btn') ||
+      e.target.classList.contains('non-sub')
+    ) {
+      closeSubmenu();
+    }
+  };
+
   return (
-    <nav className="nav">
+    <nav className="nav" onMouseOver={handleSubmenu}>
       <div className="nav-center">
         <div className="nav-header">
           <a href="#">
@@ -39,7 +48,7 @@ function Navbar() {
             </button>
           </li>
           <li>
-            <button className="link-btn">HOT DROPS</button>
+            <button className="link-btn non-sub">HOT DROPS</button>
           </li>
         </ul>
         <ul className="nav-user">
