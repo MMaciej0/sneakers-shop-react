@@ -1,23 +1,21 @@
 import './App.css';
-import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
-import Slider from './components/Slider';
-import { useGlobalContext } from './context';
-import Slides from './sliderData';
-import Submenu from './components/Submenu';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
+import Cart from './pages/Cart';
+import Products from './pages/Products';
+import Error from './pages/Error';
+import SharedLayout from './pages/SharedLayout';
 
 function App() {
   return (
-    <div className="grid-container">
-      <header>
-        <Navbar />
-        <Sidebar />
-        <Submenu />
-      </header>
-      <main>
-        <Slider slides={Slides} />
-      </main>
-    </div>
+    <Routes>
+      <Route path="/" element={<SharedLayout />}>
+        <Route index element={<Home />} />
+        <Route path="cart" element={<Cart />} />
+        <Route path="products" element={<Products />} />
+        <Route path="*" element={<Error />} />
+      </Route>
+    </Routes>
   );
 }
 
