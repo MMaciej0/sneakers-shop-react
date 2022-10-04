@@ -1,13 +1,15 @@
 import React, { useEffect, useRef } from 'react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import './Submenu.css';
+import SubmenuBrandItem from './SubmenuBrandItem';
 
 function Submenu() {
   const {
     showSubmenu,
     location,
-    page: { page, links },
+    submenuData: { category, brand },
   } = useGlobalContext();
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
@@ -15,33 +17,35 @@ function Submenu() {
   useEffect(() => {
     setColumns('col-2');
     const submenu = container.current;
-
     const { bottom, center } = location;
     submenu.style.left = `${center}px`;
     submenu.style.top = `${bottom}px`;
-    if (links.length === 3) {
-      setColumns('col-3');
-    } else if (links.length > 3) {
-      setColumns('col-4');
-    }
-  }, [location, links]);
+  }, [location]);
 
   return (
     <aside
       ref={container}
       className={`${showSubmenu ? 'submenu show' : 'submenu'}`}
     >
-      <h4>{page}</h4>
       <div className={`submenu-center ${columns}`}>
-        {links.map((link, index) => {
-          const { label, icon, url, img } = link;
-          return (
-            <a href={url} key={index}>
-              {icon || <img src={img} alt={label} />}
-              {label}
-            </a>
-          );
-        })}
+        <div className="submenu-column">
+          <h4>Categories</h4>
+          {category &&
+            category.map((category, index) => {
+              return (
+                <Link to={`/products/${category}`} key={index}>
+                  {category}
+                </Link>
+              );
+            })}
+        </div>
+        <div className="submenu-column ">
+          <h4>Brands</h4>
+          {brand &&
+            brand.map((brand) => {
+              return <SubmenuBrandItem key={brand.id} {...brand} />;
+            })}
+        </div>
       </div>
     </aside>
   );

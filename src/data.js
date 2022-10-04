@@ -1,10 +1,8 @@
-import { GiRunningShoe } from 'react-icons/gi';
-
 const data = {
   products: [
     {
       _id: '1',
-      name: 'REPOSTO - Trainers',
+      name: 'REPOSTO',
       category: 'sport',
       image: [
         '/images/product-1-1.jpg',
@@ -32,10 +30,11 @@ const data = {
       ],
       adding_date: '2022/01/02',
       onSale: 'true',
+      sex: 'unisex',
     },
     {
       _id: '2',
-      name: 'CROCOS - Trainers',
+      name: 'CROCOS',
       category: 'business',
       image: ['/images/product-2.jpg'],
       price: 117,
@@ -53,10 +52,33 @@ const data = {
       ],
       adding_date: '2021/12/02',
       onSale: 'false',
+      sex: 'unisex',
+    },
+    {
+      _id: '10',
+      name: 'CROCOSSSS',
+      category: 'business',
+      image: ['/images/product-2.jpg'],
+      price: 117,
+      brand: 'Lacoste',
+      brand_logo: '/images/lacoste-logo.jpg',
+      color: 'black',
+      rating: 4.2,
+      numReviews: 3345,
+      countInStock: [
+        { size: 39, qty: 3 },
+        { size: 40, qty: 1 },
+        { size: 42, qty: 0 },
+        { size: 43, qty: 3 },
+        { size: 44, qty: 5 },
+      ],
+      adding_date: '2021/12/02',
+      onSale: 'false',
+      sex: 'unisex',
     },
     {
       _id: '3',
-      name: 'XT-WINGS 2 UNISEX - Trainers',
+      name: 'XT-WINGS 2 UNISEX',
       category: 'outdoor',
       image: ['/images/product-3.jpg'],
       price: 129,
@@ -74,10 +96,11 @@ const data = {
       ],
       adding_date: '2021/11/02',
       onSale: 'false',
+      sex: 'unisex',
     },
     {
       _id: '4',
-      name: 'MULTIX UNISEX - Trainers',
+      name: 'MULTIX UNISEX',
       category: 'casual',
       image: ['/images/product-4.jpg'],
       price: 89,
@@ -95,10 +118,11 @@ const data = {
       ],
       adding_date: '2021/10/02',
       onSale: 'true',
+      sex: 'unisex',
     },
     {
       _id: '5',
-      name: 'NUCLEUS - Trainers',
+      name: 'NUCLEUS',
       category: 'sport',
       image: ['/images/product-5.jpg'],
       price: 40,
@@ -116,14 +140,15 @@ const data = {
       ],
       adding_date: '2021/09/02',
       onSale: 'true',
+      sex: 'woman',
     },
     {
       _id: '6',
-      name: 'SUPER DELUX - Trainers',
+      name: 'SUPER DELUX',
       category: 'premium',
       image: ['/images/product-6.jpg'],
       price: 149,
-      brand: 'EA7 Emporio Armani',
+      brand: 'EA7',
       brand_logo: '/images/emporio-armani-logo.png',
       color: 'black',
       rating: 1.5,
@@ -137,33 +162,7 @@ const data = {
       ],
       adding_date: '2022/02/02',
       onSale: 'false',
-    },
-  ],
-  sublinks: [
-    {
-      page: 'categories',
-      links: [
-        { label: 'sport', icon: <GiRunningShoe />, url: '/products' },
-        { label: 'business', icon: <GiRunningShoe />, url: '/products' },
-        { label: 'outdoor', icon: <GiRunningShoe />, url: '/products' },
-        { label: 'casual', icon: <GiRunningShoe />, url: '/products' },
-        { label: 'premium', icon: <GiRunningShoe />, url: '/products' },
-      ],
-    },
-    {
-      page: 'brands',
-      links: [
-        { label: 'nike', img: '/images/nike-logo.webp', url: '/products' },
-        { label: 'lacoste', img: '/images/lacoste-logo.jpg', url: '/products' },
-        { label: 'adidas', img: '/images/adidas-logo.svg', url: '/products' },
-        { label: 'puma', img: '/images/puma-logo.jpg', url: '/products' },
-        { label: 'salomon', img: '/images/salomon-logo.svg', url: '/products' },
-        {
-          label: 'EA7',
-          img: '/images/emporio-armani-logo.png',
-          url: '/products',
-        },
-      ],
+      sex: 'man',
     },
   ],
 };

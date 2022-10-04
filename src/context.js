@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import data from './data';
+import { getSubmenuItems } from './utils';
 
 const AppContext = React.createContext();
 
@@ -7,11 +8,11 @@ export const AppProvider = ({ children }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [location, setLocation] = useState({});
-  const [page, setPage] = useState({ page: '', links: [] });
+  const [submenuData, setSubmenuData] = useState([]);
 
   const openSubmenu = (text, coordinates) => {
-    const page = data.sublinks.find((link) => link.page === text);
-    setPage(page);
+    const subData = getSubmenuItems(data.products, 'sex', text);
+    setSubmenuData(subData);
     setLocation(coordinates);
     setShowSubmenu(true);
   };
@@ -37,7 +38,7 @@ export const AppProvider = ({ children }) => {
         showSidebar,
         showSubmenu,
         location,
-        page,
+        submenuData,
       }}
     >
       {children}
