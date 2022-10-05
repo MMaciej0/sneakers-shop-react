@@ -33,13 +33,19 @@ function Submenu() {
           {category &&
             category.map((category, index) => {
               return (
-                <Link to={`/products/${category}`} key={index}>
-                  {category}
-                </Link>
+                <div className="item-container">
+                  <Link
+                    className="column-link"
+                    to={`/products/${category}`}
+                    key={index}
+                  >
+                    {category}
+                  </Link>
+                </div>
               );
             })}
         </div>
-        <div className="submenu-column ">
+        <div className="submenu-column">
           <h4>Brands</h4>
           {brand &&
             brand.map((brand) => {

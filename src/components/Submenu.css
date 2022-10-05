@@ -57,75 +57,75 @@
   border-right: 2px solid hsl(var(--dark-grayish-blue), 0.4);
 }
 
-.submenu-column > a {
-  width: 25rem;
-  color: hsl(var(--dark-grayish-blue));
+.submenu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.column-link {
+  display: flex;
+  align-items: center;
   text-transform: capitalize;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  transition: var(--mainTransition);
-  margin-top: 1.6rem;
-  font-size: 1.8rem;
+  font-size: 2rem;
+  width: 25rem;
 }
 
-.submenu-column .img-container {
-  display: flex;
-  align-items: center;
-}
-
-.submenu-column > a img {
-  object-fit: cover;
+.column-link img {
   width: 40px;
   height: 40px;
+  object-fit: cover;
   border-radius: 50%;
   margin-inline: 1rem 3rem;
 }
 
-.chevron {
-  color: var(--clr-grey-5);
-  margin-right: 1rem;
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.6rem;
+}
+
+.item-container .chevron {
   font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
   transition: var(--mainTransition);
 }
 
-.chevron-down {
+.chevron.chevron-down {
   transform: rotate(90deg);
   color: hsl(var(--orange-primary));
 }
 
 .models {
+  margin-top: 1.6rem;
+  margin-left: 8rem;
   display: none;
-  flex-direction: column;
-  justify-content: center;
-
-  transition: var(--mainTransition);
 }
 
-.submenu-column button {
-  border: none;
-  background: transparent;
-  text-align: center;
-  cursor: pointer;
-  transition: var(--mainTransition);
-}
-
-.models.show {
-  display: flex;
-}
-
-.models a {
+.models a:not(.models a:first-of-type) {
   margin-top: 1rem;
-  padding-left: 8rem;
 }
 
-.highlight {
+.show {
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu-column a {
+  transition: var(--mainTransition);
+}
+
+.submenu-column a:hover,
+.chevron:hover {
   color: hsl(var(--orange-primary));
 }
 
-.chevron:hover,
-.submenu-column > a:hover,
-.submenu-column button:hover,
-.models a:hover {
+.highlight {
   color: hsl(var(--orange-primary));
 }

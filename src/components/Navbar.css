@@ -96,6 +96,10 @@
     align-items: center;
   }
 
+  .nav-links a {
+    padding-block: 10px;
+  }
+
   .nav-links li {
     height: 100%;
   }
