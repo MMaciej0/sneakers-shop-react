@@ -33,12 +33,8 @@ function Submenu() {
           {category &&
             category.map((category, index) => {
               return (
-                <div className="item-container">
-                  <Link
-                    className="column-link"
-                    to={`/products/${category}`}
-                    key={index}
-                  >
+                <div key={index} className="item-container">
+                  <Link className="column-link" to={`/products/${category}`}>
                     {category}
                   </Link>
                 </div>
@@ -48,8 +44,8 @@ function Submenu() {
         <div className="submenu-column">
           <h4>Brands</h4>
           {brand &&
-            brand.map((brand) => {
-              return <SubmenuBrandItem key={brand.id} {...brand} />;
+            brand.map((brand, index) => {
+              return <SubmenuBrandItem key={index} {...brand} />;
             })}
         </div>
       </div>

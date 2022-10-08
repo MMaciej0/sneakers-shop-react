@@ -40,32 +40,48 @@
   cursor: pointer;
 }
 
-.sidebar article {
-  margin-bottom: 2rem;
-}
-.sidebar-sublinks {
+.sidebar-main {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  row-gap: 1.6rem;
+  height: 100%;
+  grid-template-rows: 2fr 1fr;
 }
-.sidebar-sublinks a {
-  display: block;
-  color: var(--clr-grey-1);
-  text-transform: capitalize;
+
+.main-links {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
 }
 
-.sidebar-sublinks a img {
-  object-fit: cover;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  margin-right: 1.6rem;
+.main-links a {
+  text-transform: uppercase;
+  font-size: 5rem;
+  display: block;
+  margin-block: 2rem;
+  border-bottom: 2px solid hsl(var(--black));
+  width: 100%;
+  text-align: center;
 }
-.sidebar-sublinks svg {
-  color: var(--clr-grey-5);
-  margin-right: 1rem;
+
+.main-links a:last-of-type {
+  color: hsl(var(--orange-primary));
+}
+
+.main-buttons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-inline: 10vw;
+}
+
+.main-buttons a {
+  font-size: 3rem;
+}
+
+.main-buttons a:last-of-type {
+  background-color: hsl(var(--orange-primary));
+  padding: 0.8rem 1.8rem;
+  border-radius: 10px;
 }
 
 @media screen and (min-width: 800px) {

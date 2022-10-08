@@ -112,7 +112,7 @@
   margin-top: 1rem;
 }
 
-.show {
+.models.show {
   display: flex;
   flex-direction: column;
 }

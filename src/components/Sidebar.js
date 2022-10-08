@@ -1,11 +1,16 @@
 import React from 'react';
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaTimes } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import './Sidebar.css';
-import data from '../data';
 
 function Sidebar() {
-  const { showSidebar, closeSidebar } = useGlobalContext();
+  const {
+    showSidebar,
+    closeSidebar,
+    submenuData: { category, brand },
+  } = useGlobalContext();
 
   return (
     <aside
@@ -15,26 +20,18 @@ function Sidebar() {
         <button className="close-btn" onClick={closeSidebar}>
           <FaTimes />
         </button>
-        <div className="sidebar-links">
-          {/* {data.products.map((item, index) => {
-            const { links, page } = item;
-            return (
-              <article key={index}>
-                <h4>{page}</h4>
-                <div className="sidebar-sublinks">
-                  {links.map((link, index) => {
-                    const { url, icon, img, label } = link;
-                    return (
-                      <a href={url} key={index}>
-                        {icon || <img src={img} alt={label} />}
-                        {label}
-                      </a>
-                    );
-                  })}
-                </div>
-              </article>
-            );
-          })} */}
+        <div className="sidebar-main">
+          <div className="main-links">
+            <Link>man</Link>
+            <Link>woman</Link>
+            <Link>sales %</Link>
+          </div>
+          <div className="main-buttons">
+            <Link>
+              <AiOutlineShoppingCart />
+            </Link>
+            <Link>Login</Link>
+          </div>
         </div>
       </div>
     </aside>

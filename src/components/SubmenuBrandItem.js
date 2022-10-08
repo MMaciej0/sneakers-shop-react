@@ -2,10 +2,11 @@ import React from 'react';
 import { useRef, useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { useGlobalContext } from '../context';
 
-function SubmenuBrandItem({ id, name, image, model }) {
+function SubmenuBrandItem({ name, image, model }) {
   const [open, setOpen] = useState(false);
-
+  const { location } = useGlobalContext();
   let toggleRef = useRef();
 
   useEffect(() => {
@@ -19,12 +20,15 @@ function SubmenuBrandItem({ id, name, image, model }) {
     return () => document.removeEventListener('click', handler);
   });
 
+  useEffect(() => {
+    setOpen(false);
+  }, [location]);
+
   return (
     <>
       <div className="item-container">
         <Link
           to={`/products/${name}`}
-          key={id}
           className={open ? 'column-link highlight ' : 'column-link'}
         >
           <img src={image} alt={name} /> {name}
