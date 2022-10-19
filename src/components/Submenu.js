@@ -10,9 +10,11 @@ function Submenu() {
     showSubmenu,
     location,
     submenuData: { category, brand },
+    navText,
   } = useGlobalContext();
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
+  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     setColumns('col-2');
@@ -34,7 +36,11 @@ function Submenu() {
             category.map((category, index) => {
               return (
                 <div key={index} className="item-container">
-                  <Link className="column-link" to={`/products/${category}`}>
+                  <Link
+                    className="column-link"
+                    to={`/products/${navText}/${category}`}
+                    onClick={() => setSelectedCategory(category)}
+                  >
                     {category}
                   </Link>
                 </div>
@@ -45,7 +51,13 @@ function Submenu() {
           <h4>Brands</h4>
           {brand &&
             brand.map((brand, index) => {
-              return <SubmenuBrandItem key={index} {...brand} />;
+              return (
+                <SubmenuBrandItem
+                  key={index}
+                  {...brand}
+                  category={selectedCategory}
+                />
+              );
             })}
         </div>
       </div>

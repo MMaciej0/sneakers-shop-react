@@ -1,11 +1,18 @@
 export const getItems = (data, property, value) => {
-  return data.filter((item) => item[property] === value);
+  return data.filter(
+    (item) => item[property].toLowerCase() === value.toLowerCase()
+  );
 };
 
-export const getSubmenuItems = (data, property, value) => {
-  const itemsFirst = getItems(data, property, value);
-  const itemsSecond = getItems(data, property, 'unisex');
+export const getProductsBySex = (data, value) => {
+  const itemsFirst = getItems(data, 'sex', value);
+  const itemsSecond = getItems(data, 'sex', 'unisex');
   const selectedItems = [...itemsFirst, ...itemsSecond];
+  return selectedItems;
+};
+
+export const getSubmenuItems = (data, value) => {
+  const selectedItems = getProductsBySex(data, value);
   const category = [...new Set(selectedItems.map((item) => item.category))];
   let brand = selectedItems
     .map((item) => {

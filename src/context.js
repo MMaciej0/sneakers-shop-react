@@ -9,9 +9,11 @@ export const AppProvider = ({ children }) => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [location, setLocation] = useState({});
   const [submenuData, setSubmenuData] = useState([]);
+  const [navText, setNavText] = useState('');
 
   const openSubmenu = (text, coordinates) => {
-    const subData = getSubmenuItems(data.products, 'sex', text);
+    const subData = getSubmenuItems(data.products, text);
+    setNavText(text);
     setSubmenuData(subData);
     setLocation(coordinates);
     setShowSubmenu(true);
@@ -39,6 +41,8 @@ export const AppProvider = ({ children }) => {
         showSubmenu,
         location,
         submenuData,
+        navText,
+        data,
       }}
     >
       {children}

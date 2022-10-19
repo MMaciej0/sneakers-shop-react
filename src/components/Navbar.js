@@ -1,8 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React from 'react';
 import './Navbar.css';
 import { CgMenuGridR } from 'react-icons/cg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { HiOutlineUserCircle } from 'react-icons/hi';
 import { useGlobalContext } from '../context';
 import { Link, NavLink } from 'react-router-dom';
 
@@ -31,7 +30,7 @@ function Navbar() {
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src="./images/logo.svg" alt="LOGO" />
+            <img src="../../public/images/logo.svg" alt="LOGO" />
           </Link>
           <button className="nav-header__toggler" onClick={openSidebar}>
             <CgMenuGridR />
@@ -39,20 +38,20 @@ function Navbar() {
         </div>
         <div className="nav-links">
           <NavLink
-            to="/products"
+            to="/products/man"
             className="link-btn"
             onMouseOver={displaySubmenu}
           >
             man
           </NavLink>
           <NavLink
-            to="/products"
+            to="/products/woman"
             className="link-btn"
             onMouseOver={displaySubmenu}
           >
             woman
           </NavLink>
-          <NavLink to="/products" className="link-btn non-sub">
+          <NavLink to="/products/sale" className="link-btn non-sub">
             hot drops
           </NavLink>
         </div>

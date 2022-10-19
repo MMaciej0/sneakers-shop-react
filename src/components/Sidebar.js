@@ -22,9 +22,15 @@ function Sidebar() {
         </button>
         <div className="sidebar-main">
           <div className="main-links">
-            <Link>man</Link>
-            <Link>woman</Link>
-            <Link>sales %</Link>
+            <Link to="/products/man" onClick={closeSidebar}>
+              man
+            </Link>
+            <Link to="/products/woman" onClick={closeSidebar}>
+              woman
+            </Link>
+            <Link to="/products/sale" onClick={closeSidebar}>
+              sales %
+            </Link>
           </div>
           <div className="main-buttons">
             <Link>

@@ -1,0 +1,78 @@
+@import url('../custom.css');
+
+.products-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 320px));
+  justify-content: center;
+  column-gap: 3rem;
+  row-gap: 4rem;
+}
+
+.product {
+  border: 1px solid hsl(var(--grayish-blue));
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 5px hsl(var(--dark-grayish-blue), 0.5);
+  padding-bottom: 1rem;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.functional-buttons {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  width: 100%;
+  display: flex;
+  transform: translateX(101%);
+  transition: var(--mainTransition);
+}
+
+.functional-buttons button {
+  width: 100%;
+  border: none;
+  text-transform: uppercase;
+  padding: 1rem 0.75rem;
+  letter-spacing: var(--main-spacing);
+  font-weight: bold;
+  font-size: 1.2rem;
+  transition: var(--mainTransition);
+  cursor: pointer;
+  border-block: 2px solid hsl(var(--dark-grayish-blue), 0.4);
+}
+
+.functional-buttons button:hover {
+  color: white;
+  background-color: hsl(var(--orange-primary));
+}
+
+.product:hover .functional-buttons {
+  transform: translateX(0);
+}
+
+.product h3,
+.product h4 {
+  margin-left: 1.6rem;
+  letter-spacing: var(--main-spacing);
+}
+
+.product h3 {
+  font-size: 2.1rem;
+}
+
+.product h4 {
+  font-size: 1.9rem;
+  color: hsl(var(--orange-primary));
+}
