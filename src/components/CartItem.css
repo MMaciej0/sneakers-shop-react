@@ -1,0 +1,56 @@
+@import url('../custom.css');
+
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+  border-bottom: 2px solid hsl(var(--dark-grayish-blue), 0.2);
+}
+
+.cart-item img {
+  width: 10rem;
+  height: 10rem;
+  object-fit: cover;
+}
+
+.cart-item h4 {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+}
+
+.item-price {
+  color: hsl(var(--orange-primary));
+}
+
+.cart-item .remove-btn {
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  font-size: 1.2rem;
+  background: transparent;
+  border: none;
+  margin-top: 0.5rem;
+  transition: var(--transition);
+}
+
+.cart-item .remove-btn:hover,
+.amount-btn:hover {
+  color: hsl(var(--orange-primary));
+}
+
+.amount-btn {
+  width: 1.5rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: var(--mainTransition);
+}
+
+.amount {
+  text-align: center;
+  margin-block: 0.75rem;
+  font-size: 1.6rem;
+  line-height: 1;
+}

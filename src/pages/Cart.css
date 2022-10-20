@@ -1,0 +1,54 @@
+@import url('../custom.css');
+
+.cart-empty h2 {
+  text-align: center;
+  margin-top: 10rem;
+}
+
+.cart-empty a {
+  color: hsl(var(--orange-primary));
+}
+
+.cart {
+  min-height: calc(100vh - 120px);
+  max-width: var(--fixed-width);
+  margin: 0 auto;
+  width: 90vw;
+  margin-top: 40px;
+  padding: 2.5rem 0;
+}
+
+.cart h2 {
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.cart footer {
+  margin-top: 4rem;
+  text-align: center;
+}
+
+.cart-total h4 {
+  text-transform: capitalize;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.clear-btn {
+  background: transparent;
+  padding: 0.8rem 3rem;
+  color: hsl(var(--dark-graish-blue));
+  border: 1px solid hsl(var(--orange-primary));
+  margin-top: 2.25rem;
+  border-radius: var(--radius);
+  font-size: 1.6rem;
+  letter-spacing: var(--spacing);
+  cursor: pointer;
+  transition: var(--mainTransition);
+}
+
+.clear-btn:hover {
+  outline: 1px solid hsl(var(--orange-primary));
+}

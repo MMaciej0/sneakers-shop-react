@@ -58,8 +58,37 @@ img {
   background-color: hsl(var(--orange-primary));
 }
 
-.product:hover .functional-buttons {
+.product:hover .functional-buttons,
+.product:hover .size-buttons {
   transform: translateX(0);
+}
+
+.size-buttons {
+  position: absolute;
+  top: 80%;
+  bottom: 0;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: hsl(var(--light-graish-blue));
+  transform: translateX(101%);
+  transition: var(--mainTransition);
+}
+
+.size-buttons button {
+  font-weight: bold;
+  border: 1px solid hsl(var(--orange-primary));
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5rem 0.75rem;
+}
+
+.size-buttons button:hover {
+  outline: 1px solid hsl(var(--orange-primary));
 }
 
 .product h3,

@@ -42,26 +42,38 @@
   display: none;
 }
 
-.nav-user button {
+.nav-user .user-login {
   border-color: transparent;
+  display: inline-block;
   color: white;
   cursor: pointer;
   transition: var(--mainTransition);
-  margin-inline: 1rem;
   letter-spacing: var(--spacing);
 }
 
-.nav-user .cart {
+.nav-user .user-cart {
   background-color: transparent;
-  font-size: 2.5rem;
+  font-size: 3rem;
   color: black;
   display: flex;
   align-items: center;
-  margin-right: 1rem;
   transition: var(--mainTransition);
+  position: relative;
+  margin-left: 2rem;
 }
 
-.nav-user .login {
+.nav-user .user-cart > p {
+  position: absolute;
+  text-align: center;
+  top: -15px;
+  right: -15px;
+  background-color: hsl(var(--light-graish-blue));
+  font-size: 2rem;
+  border-radius: 50%;
+  width: 3rem;
+}
+
+.nav-user .user-login {
   background-color: hsl(var(--light-graish-blue));
   color: black;
   padding: 0.5rem 2rem;
@@ -70,7 +82,7 @@
   margin-left: 1rem;
 }
 
-.nav-user .login:hover {
+.nav-user .user-login:hover {
   background: hsl(var(--orange-primary), 0.7);
 }
 
@@ -87,7 +99,6 @@
 
   .nav-user {
     display: flex;
-    align-items: center;
   }
 
   .nav-links {

@@ -6,7 +6,7 @@ import { useGlobalContext } from '../context';
 import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
-  const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+  const { openSidebar, openSubmenu, closeSubmenu, amount } = useGlobalContext();
 
   const displaySubmenu = (e) => {
     const btnText = e.target.textContent;
@@ -56,10 +56,11 @@ function Navbar() {
           </NavLink>
         </div>
         <div className="nav-user">
-          <NavLink to="/cart" className="cart">
+          <NavLink className="user-login">Sign In</NavLink>
+          <NavLink to="/cart" className="user-cart">
+            <p>{amount}</p>
             <AiOutlineShoppingCart />
           </NavLink>
-          <NavLink className="login">Sign In</NavLink>
         </div>
       </div>
     </nav>

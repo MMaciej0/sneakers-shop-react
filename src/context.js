@@ -1,8 +1,15 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState, useReducer } from 'react';
 import data from './data';
 import { getSubmenuItems } from './utils';
+import reducer from './reducer';
 
 const AppContext = React.createContext();
+
+const initialState = {
+  cart: [],
+  amount: 0,
+  total: 0,
+};
 
 export const AppProvider = ({ children }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
@@ -10,6 +17,7 @@ export const AppProvider = ({ children }) => {
   const [location, setLocation] = useState({});
   const [submenuData, setSubmenuData] = useState([]);
   const [navText, setNavText] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   const openSubmenu = (text, coordinates) => {
     const subData = getSubmenuItems(data.products, text);
@@ -43,6 +51,7 @@ export const AppProvider = ({ children }) => {
         submenuData,
         navText,
         data,
+        ...state,
       }}
     >
       {children}
