@@ -14,7 +14,6 @@ function Submenu() {
   } = useGlobalContext();
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
-  const [selectedCategory, setSelectedCategory] = useState('all');
 
   useEffect(() => {
     setColumns('col-2');
@@ -39,7 +38,6 @@ function Submenu() {
                   <Link
                     className="column-link"
                     to={`/products/${navText}/${category}`}
-                    onClick={() => setSelectedCategory(category)}
                   >
                     {category}
                   </Link>
@@ -51,13 +49,7 @@ function Submenu() {
           <h4>Brands</h4>
           {brand &&
             brand.map((brand, index) => {
-              return (
-                <SubmenuBrandItem
-                  key={index}
-                  {...brand}
-                  category={selectedCategory}
-                />
-              );
+              return <SubmenuBrandItem key={index} {...brand} category="all" />;
             })}
         </div>
       </div>

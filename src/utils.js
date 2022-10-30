@@ -40,3 +40,9 @@ export const getSubmenuItems = (data, value) => {
 
   return { category, brand };
 };
+
+export const findProduct = (cart, id, size) => {
+  return cart
+    .filter((item) => item._id === id)
+    .filter((item) => item.countInStock.size === size);
+};

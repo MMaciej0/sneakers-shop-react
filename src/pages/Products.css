@@ -87,6 +87,10 @@ img {
   padding: 0.5rem 0.75rem;
 }
 
+.size-buttons button.selected {
+  outline: 1px solid hsl(var(--orange-primary));
+}
+
 .size-buttons button:hover {
   outline: 1px solid hsl(var(--orange-primary));
 }

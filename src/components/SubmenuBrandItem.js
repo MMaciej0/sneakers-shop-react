@@ -47,7 +47,7 @@ function SubmenuBrandItem({ name, image, model, category }) {
         {model.map((model, index) => {
           return (
             <Link
-              to={`/products/${navText}}/${category}/${name}/${model}`}
+              to={`/products/${navText}/${category}/${name}/${model}`}
               key={index}
             >
               {model}

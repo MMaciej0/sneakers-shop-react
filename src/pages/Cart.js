@@ -5,7 +5,7 @@ import { useGlobalContext } from '../context';
 import { Link } from 'react-router-dom';
 
 function Cart() {
-  const { total, cart } = useGlobalContext();
+  const { total, cart, clearCart } = useGlobalContext();
 
   if (cart.length === 0) {
     return (
@@ -33,7 +33,9 @@ function Cart() {
             total: <span>${total}</span>
           </h4>
         </div>
-        <button className="clear-btn">clear cart</button>
+        <button className="clear-btn" onClick={clearCart}>
+          clear cart
+        </button>
       </footer>
     </section>
   );

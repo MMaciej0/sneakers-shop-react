@@ -5,6 +5,7 @@ import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import { getProductsBySex } from '../utils';
+import SingleProduct from '../components/SingleProduct';
 
 function Products() {
   const { data } = useGlobalContext();
@@ -20,7 +21,7 @@ function Products() {
     if (navText.toLowerCase() === 'sale') {
       setProducts(data.products.filter((product) => product.onSale === 'true'));
     }
-  }, [navText]);
+  }, [brand, model, navText, category]);
 
   useEffect(() => {
     if (brand) {
@@ -30,7 +31,7 @@ function Products() {
         )
       );
     }
-  }, [brand]);
+  }, [brand, model]);
 
   useEffect(() => {
     if (category) {
@@ -62,30 +63,7 @@ function Products() {
   return (
     <section className="products-center">
       {products.map((product) => {
-        const { name, image, brand, price, _id, countInStock } = product;
-        return (
-          <article className="product" key={_id}>
-            <div className="img-container">
-              <img src={image[0]} alt={name} />
-              <div className="functional-buttons">
-                <button>Show Details</button>
-                <button className="add-btn" disabled>
-                  Add to Cart
-                </button>
-              </div>
-              <div className="size-buttons">
-                {countInStock.map((item, index) => {
-                  if (item.qty > 0) {
-                    return <button key={index}>{item.size}</button>;
-                  }
-                })}
-              </div>
-              <h3>{name}</h3>
-              <h3>{brand}</h3>
-              <h4>${price}</h4>
-            </div>
-          </article>
-        );
+        return <SingleProduct {...product} key={product._id} />;
       })}
     </section>
   );

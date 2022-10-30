@@ -7,7 +7,7 @@
   top: 4rem;
   left: 50%;
   transform: translateX(-50%);
-  z-index: 3;
+  z-index: -1;
   padding: 2rem;
   border-radius: var(--radius);
   transition: var(--mainTransition);
@@ -31,6 +31,7 @@
 .submenu.show {
   opacity: 1;
   max-height: 100%;
+  z-index: 3;
 }
 
 .submenu-center {

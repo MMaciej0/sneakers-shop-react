@@ -38,6 +38,25 @@ export const AppProvider = ({ children }) => {
     setShowSidebar(false);
   };
 
+  const clearCart = () => {
+    dispatch({ type: 'CLEAR_CART' });
+  };
+
+  const addToCart = (item) => {
+    let selectedItem = {
+      ...data.products.find((product) => product._id === item.id),
+      amount: 1,
+    };
+    selectedItem.countInStock = selectedItem.countInStock.find(
+      (prod) => prod.size === item.size
+    );
+    dispatch({ type: 'ADD_TO_CART', payload: selectedItem });
+  };
+
+  const removeItem = (id, size) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: { id, size } });
+  };
+
   return (
     <AppContext.Provider
       value={{
@@ -52,6 +71,9 @@ export const AppProvider = ({ children }) => {
         navText,
         data,
         ...state,
+        clearCart,
+        addToCart,
+        removeItem,
       }}
     >
       {children}
