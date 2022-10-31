@@ -14,7 +14,7 @@ function SingleProduct({ name, image, brand, price, _id, countInStock }) {
     const inCart = findProduct(cart, _id, selectedSize);
     if (!selectedSize) {
       addBtn.current.disabled = true;
-      addBtn.current.innerText = 'Add to cart';
+      addBtn.current.innerText = 'Select size';
     }
     if (selectedSize && inCart.length === 0) {
       addBtn.current.disabled = false;
@@ -55,7 +55,7 @@ function SingleProduct({ name, image, brand, price, _id, countInStock }) {
         <div className="functional-buttons">
           <button>Show Details</button>
           <button ref={addBtn} className="add-btn" onClick={handleAdd}>
-            Add to cart
+            Select your size
           </button>
         </div>
         <div className="size-buttons">

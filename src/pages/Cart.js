@@ -24,7 +24,7 @@ function Cart() {
       </header>
       <div className="cart-items">
         {cart.map((item) => {
-          return <CartItem key={item._id} {...item} />;
+          return <CartItem key={item.cartID} {...item} />;
         })}
       </div>
       <footer>

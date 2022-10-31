@@ -2,6 +2,8 @@ import React, { useContext, useState, useReducer } from 'react';
 import data from './data';
 import { getSubmenuItems } from './utils';
 import reducer from './reducer';
+import { useEffect } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 const AppContext = React.createContext();
 
@@ -19,6 +21,10 @@ export const AppProvider = ({ children }) => {
   const [navText, setNavText] = useState('');
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  useEffect(() => {
+    dispatch({ type: 'CALCULATE_TOTALS' });
+  }, [state.cart]);
+
   const openSubmenu = (text, coordinates) => {
     const subData = getSubmenuItems(data.products, text);
     setNavText(text);
@@ -26,6 +32,7 @@ export const AppProvider = ({ children }) => {
     setLocation(coordinates);
     setShowSubmenu(true);
   };
+
   const closeSubmenu = () => {
     setShowSubmenu(false);
   };
@@ -46,6 +53,7 @@ export const AppProvider = ({ children }) => {
     let selectedItem = {
       ...data.products.find((product) => product._id === item.id),
       amount: 1,
+      cartID: uuidv4(),
     };
     selectedItem.countInStock = selectedItem.countInStock.find(
       (prod) => prod.size === item.size
@@ -53,8 +61,12 @@ export const AppProvider = ({ children }) => {
     dispatch({ type: 'ADD_TO_CART', payload: selectedItem });
   };
 
-  const removeItem = (id, size) => {
-    dispatch({ type: 'REMOVE_ITEM', payload: { id, size } });
+  const removeItem = (id) => {
+    dispatch({ type: 'REMOVE_ITEM', payload: id });
+  };
+
+  const changeAmount = (id, operation) => {
+    dispatch({ type: 'CHANGE_AMOUNT', payload: { id, operation } });
   };
 
   return (
@@ -74,6 +86,7 @@ export const AppProvider = ({ children }) => {
         clearCart,
         addToCart,
         removeItem,
+        changeAmount,
       }}
     >
       {children}
