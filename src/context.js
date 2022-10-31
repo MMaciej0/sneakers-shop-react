@@ -1,9 +1,8 @@
-import React, { useContext, useState, useReducer } from 'react';
-import data from './data';
-import { getSubmenuItems } from './utils';
-import reducer from './reducer';
-import { useEffect } from 'react';
+import React, { useContext, useState, useReducer, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import data from './data/data';
+import reducer from './reducer';
+import { getSubmenuItems } from './utils/toGetProducts';
 
 const AppContext = React.createContext();
 

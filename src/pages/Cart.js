@@ -1,5 +1,5 @@
 import React from 'react';
-import './Cart.css';
+import '../styles/Cart.css';
 import CartItem from '../components/CartItem';
 import { useGlobalContext } from '../context';
 import { Link } from 'react-router-dom';

@@ -1,5 +1,5 @@
 import React from 'react';
-import './Navbar.css';
+import '../styles/Navbar.css';
 import { CgMenuGridR } from 'react-icons/cg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { useGlobalContext } from '../context';

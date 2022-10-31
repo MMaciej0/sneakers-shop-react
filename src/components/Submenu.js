@@ -1,8 +1,7 @@
-import React, { useEffect, useRef } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import '../styles/Submenu.css';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
-import './Submenu.css';
 import SubmenuBrandItem from './SubmenuBrandItem';
 
 function Submenu() {

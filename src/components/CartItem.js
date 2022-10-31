@@ -1,5 +1,5 @@
 import React from 'react';
-import './CartItem.css';
+import '../styles/CartItem.css';
 import { FaChevronUp, FaChevronDown } from 'react-icons/fa';
 import { useGlobalContext } from '../context';
 

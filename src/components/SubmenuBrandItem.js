@@ -1,5 +1,4 @@
-import React from 'react';
-import { useRef, useState, useEffect } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';

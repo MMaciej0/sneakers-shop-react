@@ -1,11 +1,9 @@
-import React from 'react';
-import './Products.css';
-import { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import '../styles/Products.css';
+import SingleProduct from '../components/SingleProduct';
 import { useParams } from 'react-router-dom';
 import { useGlobalContext } from '../context';
-import { getProductsBySex } from '../utils';
-import SingleProduct from '../components/SingleProduct';
+import { getProductsBySex } from '../utils/toGetProducts';
 
 function Products() {
   const { data } = useGlobalContext();

@@ -1,4 +1,4 @@
-@import url('../custom.css');
+@import url('./custom.css');
 
 .sidebar-wrapper {
   position: fixed;
@@ -71,17 +71,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-inline: 10vw;
+  width: 100%;
 }
 
 .main-buttons a {
-  font-size: 3rem;
-}
-
-.main-buttons a:last-of-type {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: hsl(var(--orange-primary));
-  padding: 0.8rem 1.8rem;
+  width: 100%;
+  height: 5rem;
   border-radius: 10px;
+  font-size: 2.5rem;
+  margin-inline: 0.5rem;
 }
 
 @media screen and (min-width: 800px) {

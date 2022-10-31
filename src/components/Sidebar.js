@@ -1,9 +1,9 @@
 import React from 'react';
+import '../styles/Sidebar.css';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
-import './Sidebar.css';
 
 function Sidebar() {
   const {
@@ -33,7 +33,7 @@ function Sidebar() {
             </Link>
           </div>
           <div className="main-buttons">
-            <Link>
+            <Link to="/cart" onClick={closeSidebar}>
               <AiOutlineShoppingCart />
             </Link>
             <Link>Login</Link>

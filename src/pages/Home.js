@@ -1,6 +1,6 @@
 import React from 'react';
 import Slider from '../components/Slider';
-import slides from '../sliderData';
+import slides from '../data/sliderData';
 
 function Home() {
   return (
