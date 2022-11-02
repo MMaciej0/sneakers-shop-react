@@ -56,7 +56,9 @@ function Navbar() {
           </NavLink>
         </div>
         <div className="nav-user">
-          <NavLink className="user-login">Sign In</NavLink>
+          <NavLink className="user-login" to="/login">
+            Sign In
+          </NavLink>
           <NavLink to="/cart" className="user-cart">
             <p>{amount}</p>
             <AiOutlineShoppingCart />

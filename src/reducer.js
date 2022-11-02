@@ -42,6 +42,10 @@ const reducer = (state, action) => {
         })
         .filter((item) => item.amount !== 0);
       return { ...state, cart: itemsNewAmount };
+
+    case 'LOGIN_USER':
+      return { ...state, user: action.payload };
+
     default:
       break;
   }

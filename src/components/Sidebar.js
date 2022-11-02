@@ -36,7 +36,9 @@ function Sidebar() {
             <Link to="/cart" onClick={closeSidebar}>
               <AiOutlineShoppingCart />
             </Link>
-            <Link>Login</Link>
+            <Link to="/login" onClick={closeSidebar}>
+              Login
+            </Link>
           </div>
         </div>
       </div>

@@ -10,6 +10,7 @@ const initialState = {
   cart: [],
   amount: 0,
   total: 0,
+  user: null,
 };
 
 export const AppProvider = ({ children }) => {
@@ -46,6 +47,11 @@ export const AppProvider = ({ children }) => {
 
   const clearCart = () => {
     dispatch({ type: 'CLEAR_CART' });
+  };
+
+  const loginUser = (email, password) => {
+    const user = { email, password };
+    dispatch({ type: 'LOGIN_USER', payload: user });
   };
 
   const addToCart = (item) => {
@@ -86,6 +92,7 @@ export const AppProvider = ({ children }) => {
         addToCart,
         removeItem,
         changeAmount,
+        loginUser,
       }}
     >
       {children}

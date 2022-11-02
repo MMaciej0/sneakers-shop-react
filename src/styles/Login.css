@@ -1,0 +1,44 @@
+@import url('./custom.css');
+
+.login__container {
+  padding: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50vh;
+}
+
+.login {
+  background-color: hsl(var(--orange-primary), 0.9);
+  padding: 2rem;
+  border-radius: 15px;
+  box-shadow: var(--dark-shadow);
+}
+
+.login > * {
+  margin-block: 1rem 3rem;
+  text-align: center;
+}
+
+.login h4 {
+  font-size: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+.login__input {
+  outline: none;
+}
+
+.login__input,
+.login__submit-btn {
+  padding: 1.5rem;
+  font-size: 1.8rem;
+  border-radius: 10px;
+  border: none;
+}
+
+.login__submit-btn {
+  width: 100%;
+  padding: 1.2rem;
+  cursor: pointer;
+}
