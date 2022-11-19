@@ -3,16 +3,32 @@ import '../styles/Submenu.css';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
 import SubmenuBrandItem from './SubmenuBrandItem';
+import { useFilterContext } from '../contexts/FilterContext';
 
 function Submenu() {
   const {
+    navText,
     showSubmenu,
     location,
     submenuData: { category, brand },
-    navText,
   } = useGlobalContext();
+
+  const {
+    setSelectedMenu,
+    setSelectedCategories,
+    setSelectedBrands,
+    setSelectedModel,
+  } = useFilterContext();
+
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
+
+  const handleClick = (text, cat) => {
+    setSelectedMenu(text);
+    setSelectedCategories([cat]);
+    setSelectedBrands([]);
+    setSelectedModel('');
+  };
 
   useEffect(() => {
     setColumns('col-2');
@@ -36,7 +52,8 @@ function Submenu() {
                 <div key={index} className="item-container">
                   <Link
                     className="column-link"
-                    to={`/products/${navText}/${category}`}
+                    to={`/products`}
+                    onClick={() => handleClick(navText, category)}
                   >
                     {category}
                   </Link>
@@ -48,7 +65,7 @@ function Submenu() {
           <h4>Brands</h4>
           {brand &&
             brand.map((brand, index) => {
-              return <SubmenuBrandItem key={index} {...brand} category="all" />;
+              return <SubmenuBrandItem key={index} {...brand} />;
             })}
         </div>
       </div>

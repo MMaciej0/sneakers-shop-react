@@ -130,3 +130,9 @@
 .highlight {
   color: hsl(var(--orange-primary));
 }
+
+@media screen and (max-width: 767px) {
+  .submenu {
+    display: none;
+  }
+}

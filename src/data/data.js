@@ -78,7 +78,7 @@ const data = {
     },
     {
       _id: '323451',
-      name: 'XT-WINGS 2 UNISEX',
+      name: 'XT-WINGS 2',
       category: 'outdoor',
       image: ['/images/product-3.jpg'],
       price: 129,
@@ -100,7 +100,7 @@ const data = {
     },
     {
       _id: '46479',
-      name: 'MULTIX UNISEX',
+      name: 'MULTIX',
       category: 'casual',
       image: ['/images/product-4.jpg'],
       price: 89,

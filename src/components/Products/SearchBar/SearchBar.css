@@ -1,0 +1,32 @@
+.search__container {
+  padding-inline: 2rem;
+  background-color: white;
+}
+
+.search__label {
+  display: flex;
+  align-items: center;
+}
+
+.search__icon {
+  margin-right: 2rem;
+  font-size: 2rem;
+}
+
+.search__input {
+  width: 100%;
+  padding: 3rem 1rem;
+  font-size: 2rem;
+  outline: none;
+  border: none;
+}
+
+.search__input::placeholder {
+  opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .search__label {
+    padding-inline: 20vw;
+  }
+}

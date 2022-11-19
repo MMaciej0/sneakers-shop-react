@@ -1,22 +1,15 @@
-@import url('./custom.css');
-
-.products-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 320px));
-  justify-content: center;
-  column-gap: 3rem;
-  row-gap: 4rem;
-}
+@import url('../../../styles/custom.css');
 
 .product {
+  max-width: 400px;
   border: 1px solid hsl(var(--grayish-blue));
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 0 5px hsl(var(--dark-grayish-blue), 0.5);
-  padding-bottom: 1rem;
+}
+
+.product-desctiprion {
+  padding: 1rem;
 }
 
 .img-container {
@@ -32,7 +25,7 @@ img {
 
 .functional-buttons {
   position: absolute;
-  top: 70%;
+  top: 68%;
   right: 0;
   width: 100%;
   display: flex;
@@ -49,6 +42,7 @@ img {
   font-weight: bold;
   font-size: 1.2rem;
   transition: var(--mainTransition);
+  background-color: white;
   cursor: pointer;
   border-block: 2px solid hsl(var(--dark-grayish-blue), 0.4);
 }
@@ -97,7 +91,7 @@ img {
 
 .product h3,
 .product h4 {
-  margin-left: 1.6rem;
+  margin-block: 1rem;
   letter-spacing: var(--main-spacing);
 }
 
@@ -108,4 +102,21 @@ img {
 .product h4 {
   font-size: 1.9rem;
   color: hsl(var(--orange-primary));
+}
+
+@media screen and (min-width: 768px) {
+  .product {
+    max-width: 200px;
+  }
+}
+@media screen and (min-width: 850px) {
+  .product {
+    max-width: 250px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .product {
+    max-width: 300px;
+  }
 }

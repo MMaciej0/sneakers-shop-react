@@ -4,6 +4,7 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from '../context';
+import { useFilterContext } from '../contexts/FilterContext';
 
 function Sidebar() {
   const {
@@ -11,6 +12,20 @@ function Sidebar() {
     closeSidebar,
     submenuData: { category, brand },
   } = useGlobalContext();
+  const {
+    setSelectedMenu,
+    setSelectedCategories,
+    setSelectedBrands,
+    setSelectedModel,
+  } = useFilterContext();
+
+  const handleClick = (text) => {
+    setSelectedMenu(text);
+    setSelectedCategories([]);
+    setSelectedBrands([]);
+    setSelectedModel('');
+    closeSidebar();
+  };
 
   return (
     <aside
@@ -22,13 +37,13 @@ function Sidebar() {
         </button>
         <div className="sidebar-main">
           <div className="main-links">
-            <Link to="/products/man" onClick={closeSidebar}>
+            <Link to="/products" onClick={() => handleClick('man')}>
               man
             </Link>
-            <Link to="/products/woman" onClick={closeSidebar}>
+            <Link to="/products" onClick={() => handleClick('woman')}>
               woman
             </Link>
-            <Link to="/products/sale" onClick={closeSidebar}>
+            <Link to="/products" onClick={() => handleClick('sale')}>
               sales %
             </Link>
           </div>

@@ -1,7 +1,7 @@
-import React from 'react';
-import { useState, useRef, useEffect } from 'react';
-import { useGlobalContext } from '../context';
-import { findProduct } from '../utils/toGetProducts';
+import React, { useState, useRef, useEffect } from 'react';
+import './SingleProduct.css';
+import { useGlobalContext } from '../../../context';
+import { findProduct } from '../../../utils/toGetProducts';
 import SizeBtn from './SizeBtn';
 
 function SingleProduct({ name, image, brand, price, _id, countInStock }) {
@@ -71,9 +71,11 @@ function SingleProduct({ name, image, brand, price, _id, countInStock }) {
             }
           })}
         </div>
-        <h3>{name}</h3>
-        <h3>{brand}</h3>
-        <h4>${price}</h4>
+        <div className="product-desctiprion">
+          <h3>{name}</h3>
+          <h3>{brand}</h3>
+          <h4>${price}</h4>
+        </div>
       </div>
     </article>
   );

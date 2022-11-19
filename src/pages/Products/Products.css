@@ -1,0 +1,55 @@
+@import url('../../styles/custom.css');
+
+.p-col:last-child {
+  padding: 2rem 3rem;
+}
+
+.products-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 6rem;
+}
+
+@media screen and (min-width: 768px) {
+  .products-center {
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: 1rem;
+  }
+
+  .p-container {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 150px);
+  }
+
+  .p-row {
+    display: flex;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+
+  .p-col {
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 2rem;
+  }
+
+  .p-col:first-child {
+    flex: 2;
+  }
+
+  .p-col:last-child {
+    flex: 4;
+    padding: 2rem 1rem;
+  }
+}
+
+@media screen and (min-width: 1300px) {
+  .p-col:first-child {
+    flex: 1;
+  }
+}

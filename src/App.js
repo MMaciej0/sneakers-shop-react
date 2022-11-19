@@ -2,7 +2,7 @@ import React from 'react';
 import './styles/App.css';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
-import Products from './pages/Products';
+import Products from './pages/Products/Products';
 import Error from './pages/Error';
 import SharedLayout from './pages/SharedLayout';
 import Login from './pages/Login';
@@ -17,16 +17,7 @@ function App() {
         <Route path="cart" element={<Cart />} />
         <Route path="login" element={<Login />} />
         <Route path="dashboard" element={<Dashboard />} />
-        <Route path="products/:navText" element={<Products />} />
-        <Route path="products/:navText/:category" element={<Products />} />
-        <Route
-          path="products/:navText/:category/:brand"
-          element={<Products />}
-        />
-        <Route
-          path="products/:navText/:category/:brand/:model"
-          element={<Products />}
-        />
+        <Route path="products" element={<Products />} />
         <Route path="*" element={<Error />} />
       </Route>
     </Routes>
