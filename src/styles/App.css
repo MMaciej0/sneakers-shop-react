@@ -21,6 +21,14 @@ footer {
   grid-area: footer;
 } */
 
+::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  scrollbar-width: none;
+}
+
 main {
   margin-top: 4rem;
 }

@@ -17,7 +17,12 @@ export const FilterProvider = ({ children }) => {
     let output = data.products;
 
     if (selectedMenu) {
-      output = getProductsBySex(output, selectedMenu);
+      console.log(selectedMenu);
+      if (selectedMenu === 'all') {
+        output = data.products;
+      } else {
+        output = getProductsBySex(output, selectedMenu);
+      }
     }
     if (selectedCategories.length) {
       output = forEachFilter(output, selectedCategories, 'category');

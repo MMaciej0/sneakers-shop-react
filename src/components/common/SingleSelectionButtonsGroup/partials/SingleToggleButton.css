@@ -1,0 +1,21 @@
+@import url('../../../../styles/custom.css');
+
+.toggle-btn {
+  font-weight: bold;
+  border: 1px solid hsl(var(--orange-primary));
+  background-color: white;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  padding: 1rem 2rem;
+  margin: 0.5rem 1rem;
+  letter-spacing: 0.02rem;
+  text-transform: capitalize;
+}
+
+.toggle-btn.selected {
+  outline: 1px solid hsl(var(--orange-primary));
+}
+
+.toggle-btn:hover {
+  outline: 1px solid hsl(var(--orange-primary));
+}
