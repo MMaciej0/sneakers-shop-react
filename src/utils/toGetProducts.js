@@ -11,9 +11,26 @@ export const getProductsBySex = (data, value) => {
   return selectedItems;
 };
 
+export const getCategories = (data, sex) => {
+  let selectedItems;
+  if (!sex || sex === 'all') {
+    selectedItems = data;
+  } else {
+    selectedItems = getProductsBySex(data, sex);
+  }
+  const uniqueCategories = [
+    ...new Set(selectedItems.map((item) => item.category)),
+  ];
+  const output = uniqueCategories.map((category) => ({
+    category,
+    selected: false,
+  }));
+  return output;
+};
+
 export const getSubmenuItems = (data, value) => {
   const selectedItems = getProductsBySex(data, value);
-  const category = [...new Set(selectedItems.map((item) => item.category))];
+  const category = getCategories(data, value);
   let brand = selectedItems
     .map((item) => {
       return {

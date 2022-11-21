@@ -1,4 +1,4 @@
-@import url('../../../styles/custom.css');
+@import url('../../../globalStyles/custom.css');
 
 .product {
   max-width: 400px;

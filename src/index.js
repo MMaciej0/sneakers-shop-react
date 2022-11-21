@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './styles/index.css';
+import './globalStyles/index.css';
 import App from './App';
-import { AppProvider } from './context';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { FilterProvider } from './contexts/FilterContext';
+import { AppProvider } from './contexts/GlobalContext/GlobalContext';
+import { FilterProvider } from './contexts/FilterContext/FilterContext';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

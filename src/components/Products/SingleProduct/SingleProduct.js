@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './SingleProduct.css';
-import { useGlobalContext } from '../../../context';
+import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
 import { findProduct } from '../../../utils/toGetProducts';
 import SizeBtn from './SizeBtn';
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { useGlobalContext } from '../context';
-import '../styles/Login.css';
+import { useGlobalContext } from '../../contexts/GlobalContext/GlobalContext';
+import './Login.css';
 
 function Login() {
   const [email, setEmail] = useState('');

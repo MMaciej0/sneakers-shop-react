@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../contexts/GlobalContext/GlobalContext';
 
 function Dashboard() {
   const { user } = useGlobalContext();

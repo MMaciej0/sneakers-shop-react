@@ -1,9 +1,9 @@
 import React from 'react';
-import '../styles/Navbar.css';
+import './Navbar.css';
 import { CgMenuGridR } from 'react-icons/cg';
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-import { useGlobalContext } from '../context';
-import { useFilterContext } from '../contexts/FilterContext';
+import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
+import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
@@ -18,7 +18,6 @@ function Navbar() {
   const displaySubmenu = (e) => {
     const btnText = e.target.textContent;
     const tempBtn = e.target.getBoundingClientRect();
-    console.log(tempBtn);
     const center = (tempBtn.right + tempBtn.left) / 2;
     const bottom = tempBtn.bottom;
     openSubmenu(btnText, { center, bottom });

@@ -1,4 +1,4 @@
-@import url('./custom.css');
+@import url('../../globalStyles/custom.css');
 
 .cart-empty h2 {
   text-align: center;

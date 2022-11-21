@@ -1,25 +1,29 @@
 import React, { useContext, useState, useEffect } from 'react';
-import data from '../data/data';
-import { forEachFilter } from '../utils/filters';
-import { getProductsBySex } from '../utils/toGetProducts';
+import { products as dataProducts } from '../../data/data';
+import { forEachFilter } from '../../utils/filters';
+import { getProductsBySex, getSubmenuItems } from '../../utils/toGetProducts';
 
 const FilterContext = React.createContext();
 
 export const FilterProvider = ({ children }) => {
+  const [showSubmenu, setShowSubmenu] = useState(false);
+  const [showSidebar, setShowSidebar] = useState(false);
+  const [location, setLocation] = useState({});
+  const [submenuData, setSubmenuData] = useState([]);
+  const [navText, setNavText] = useState('');
   const [products, setProducts] = useState([]);
-  const [selectedMenu, setSelectedMenu] = useState('');
+  const [selectedMenu, setSelectedMenu] = useState('all');
   const [selectedCategories, setSelectedCategories] = useState([]);
   const [selectedBrands, setSelectedBrands] = useState([]);
   const [selectedModel, setSelectedModel] = useState('');
   const [searchValue, setSearchValue] = useState('');
 
   useEffect(() => {
-    let output = data.products;
+    let output = dataProducts;
 
     if (selectedMenu) {
-      console.log(selectedMenu);
       if (selectedMenu === 'all') {
-        output = data.products;
+        return;
       } else {
         output = getProductsBySex(output, selectedMenu);
       }
@@ -41,6 +45,26 @@ export const FilterProvider = ({ children }) => {
     setProducts(output);
   }, [selectedMenu, selectedCategories, selectedBrands, selectedModel]);
 
+  const openSubmenu = (text, coordinates) => {
+    const subData = getSubmenuItems(products, text);
+    setNavText(text);
+    setSubmenuData(subData);
+    setLocation(coordinates);
+    setShowSubmenu(true);
+  };
+
+  const closeSubmenu = () => {
+    setShowSubmenu(false);
+  };
+
+  const openSidebar = () => {
+    setShowSidebar(true);
+  };
+
+  const closeSidebar = () => {
+    setShowSidebar(false);
+  };
+
   return (
     <FilterContext.Provider
       value={{
@@ -55,6 +79,16 @@ export const FilterProvider = ({ children }) => {
         products,
         searchValue,
         setSearchValue,
+        dataProducts,
+        openSubmenu,
+        closeSubmenu,
+        openSidebar,
+        closeSidebar,
+        showSidebar,
+        showSubmenu,
+        location,
+        submenuData,
+        navText,
       }}
     >
       {children}

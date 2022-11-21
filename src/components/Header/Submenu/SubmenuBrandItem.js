@@ -1,8 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../context';
-import { useFilterContext } from '../contexts/FilterContext';
+import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
+import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 function SubmenuBrandItem({ name, image, model }) {
   const { location, navText } = useGlobalContext();

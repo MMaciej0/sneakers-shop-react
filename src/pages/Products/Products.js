@@ -3,7 +3,7 @@ import './Products.css';
 import SingleProduct from '../../components/Products/SingleProduct/SingleProduct';
 import FilterNav from '../../components/Products/FilterNav/FilterNav';
 import SearchBar from '../../components/Products/SearchBar/SearchBar';
-import { useFilterContext } from '../../contexts/FilterContext';
+import { useFilterContext } from '../../contexts/FilterContext/FilterContext';
 
 function Products() {
   const { products } = useFilterContext();

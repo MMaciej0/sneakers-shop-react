@@ -1,7 +1,7 @@
 import React from 'react';
-import '../styles/Cart.css';
-import CartItem from '../components/CartItem';
-import { useGlobalContext } from '../context';
+import './Cart.css';
+import CartItem from '../../components/Cart/CartItem/CartItem';
+import { useGlobalContext } from '../../contexts/GlobalContext/GlobalContext';
 import { Link } from 'react-router-dom';
 
 function Cart() {

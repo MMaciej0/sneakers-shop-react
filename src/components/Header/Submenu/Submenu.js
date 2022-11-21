@@ -1,17 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
-import '../styles/Submenu.css';
+import './Submenu.css';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
 import SubmenuBrandItem from './SubmenuBrandItem';
-import { useFilterContext } from '../contexts/FilterContext';
+import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 function Submenu() {
-  const {
-    navText,
-    showSubmenu,
-    location,
-    submenuData: { category, brand },
-  } = useGlobalContext();
+  const { navText, showSubmenu, location, submenuData } = useGlobalContext();
 
   const {
     setSelectedMenu,
@@ -37,7 +32,7 @@ function Submenu() {
     submenu.style.left = `${center}px`;
     submenu.style.top = `${bottom}px`;
   }, [location]);
-
+  console.log(submenuData);
   return (
     <aside
       ref={container}
@@ -46,16 +41,16 @@ function Submenu() {
       <div className={`submenu-center ${columns}`}>
         <div className="submenu-column">
           <h4>Categories</h4>
-          {category &&
-            category.map((category, index) => {
+          {submenuData.category &&
+            submenuData.category.map((item, index) => {
               return (
                 <div key={index} className="item-container">
                   <Link
                     className="column-link"
                     to={`/products`}
-                    onClick={() => handleClick(navText, category)}
+                    onClick={() => handleClick(navText, item)}
                   >
-                    {category}
+                    {item.category}
                   </Link>
                 </div>
               );
@@ -63,8 +58,8 @@ function Submenu() {
         </div>
         <div className="submenu-column">
           <h4>Brands</h4>
-          {brand &&
-            brand.map((brand, index) => {
+          {submenuData.brand &&
+            submenuData.brand.map((brand, index) => {
               return <SubmenuBrandItem key={index} {...brand} />;
             })}
         </div>

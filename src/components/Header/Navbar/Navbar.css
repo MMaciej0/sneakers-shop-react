@@ -1,4 +1,4 @@
-@import url('./custom.css');
+@import url('../../../globalStyles/custom.css');
 
 .nav {
   display: flex;

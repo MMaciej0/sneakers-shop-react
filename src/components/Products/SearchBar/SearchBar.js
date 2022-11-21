@@ -1,7 +1,7 @@
 import React from 'react';
 import './SearchBar.css';
 import { FaSearch } from 'react-icons/fa';
-import { useFilterContext } from '../../../contexts/FilterContext';
+import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 const SearchBar = () => {
   const { searchValue, setSearchValue } = useFilterContext();

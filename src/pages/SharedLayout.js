@@ -1,7 +1,7 @@
 import React from 'react';
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 import { Outlet } from 'react-router-dom';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../contexts/GlobalContext/GlobalContext';
 
 function SharedLayout() {
   const { closeSubmenu } = useGlobalContext();

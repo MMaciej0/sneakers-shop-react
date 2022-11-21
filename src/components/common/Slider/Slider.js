@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/Slider.css';
+import './Slider.css';
 import Slider from 'react-slick';
-import { useGlobalContext } from '../context';
+import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
 
 const desktopSettings = {
   dots: true,
