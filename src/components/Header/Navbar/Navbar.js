@@ -7,13 +7,8 @@ import { useFilterContext } from '../../../contexts/FilterContext/FilterContext'
 import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
-  const { openSidebar, openSubmenu, closeSubmenu, amount } = useGlobalContext();
-  const {
-    setSelectedMenu,
-    setSelectedCategories,
-    setSelectedBrands,
-    setSelectedModel,
-  } = useFilterContext();
+  const { amount } = useGlobalContext();
+  const { openSidebar, openSubmenu, closeSubmenu } = useFilterContext();
 
   const displaySubmenu = (e) => {
     const btnText = e.target.textContent;
@@ -32,19 +27,12 @@ function Navbar() {
     }
   };
 
-  const handleLinks = (text) => {
-    setSelectedMenu(text);
-    setSelectedBrands([]);
-    setSelectedCategories([]);
-    setSelectedModel('');
-  };
-
   return (
     <nav className="nav" onMouseOver={handleSubmenu}>
       <div className="nav-center">
         <div className="nav-header">
           <Link to="/">
-            <img src="../../public/images/logo.svg" alt="LOGO" />
+            <img src="./images/logo.svg" alt="LOGO" />
           </Link>
           <button className="nav-header__toggler" onClick={openSidebar}>
             <CgMenuGridR />
@@ -55,7 +43,6 @@ function Navbar() {
             to="/products"
             className="link-btn"
             onMouseOver={displaySubmenu}
-            onClick={() => handleLinks('man')}
           >
             man
           </NavLink>
@@ -63,15 +50,10 @@ function Navbar() {
             to="/products"
             className="link-btn"
             onMouseOver={displaySubmenu}
-            onClick={() => handleLinks('woman')}
           >
             woman
           </NavLink>
-          <NavLink
-            to="/products"
-            className="link-btn non-sub"
-            onClick={() => handleLinks('sale')}
-          >
+          <NavLink to="/products" className="link-btn non-sub">
             hot drops
           </NavLink>
         </div>

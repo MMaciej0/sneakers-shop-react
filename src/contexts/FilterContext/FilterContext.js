@@ -1,7 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { products as dataProducts } from '../../data/data';
-import { forEachFilter } from '../../utils/filters';
-import { getProductsBySex, getSubmenuItems } from '../../utils/toGetProducts';
+import {
+  products as dataProducts,
+  categories as dataCategories,
+  brands as dataBrands,
+} from '../../data/data';
+import { getProductsBySex, forEachFilter } from '../../utils/filters';
 
 const FilterContext = React.createContext();
 
@@ -9,46 +12,31 @@ export const FilterProvider = ({ children }) => {
   const [showSubmenu, setShowSubmenu] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
   const [location, setLocation] = useState({});
-  const [submenuData, setSubmenuData] = useState([]);
   const [navText, setNavText] = useState('');
-  const [products, setProducts] = useState([]);
-  const [selectedMenu, setSelectedMenu] = useState('all');
-  const [selectedCategories, setSelectedCategories] = useState([]);
-  const [selectedBrands, setSelectedBrands] = useState([]);
-  const [selectedModel, setSelectedModel] = useState('');
+  const [gender, setGender] = useState('all');
+  const [categories, setCategories] = useState(dataCategories);
+  const [brands, setbrands] = useState(dataBrands);
+  const [model, setModel] = useState('');
   const [searchValue, setSearchValue] = useState('');
+  const [products, setProducts] = useState([]);
 
   useEffect(() => {
     let output = dataProducts;
 
-    if (selectedMenu) {
-      if (selectedMenu === 'all') {
-        return;
+    if (gender) {
+      if (gender.toLowerCase() === 'all') {
+        output = dataProducts;
       } else {
-        output = getProductsBySex(output, selectedMenu);
+        output = getProductsBySex(output, gender);
       }
     }
-    if (selectedCategories.length) {
-      output = forEachFilter(output, selectedCategories, 'category');
-    }
-    if (selectedBrands.length) {
-      output = forEachFilter(output, selectedBrands, 'brand');
-    }
-    if (selectedModel) {
-      output = [
-        output.find(
-          (item) => item.name.toLowerCase() === selectedModel.toLowerCase()
-        ),
-      ];
-    }
 
+    console.log(categories);
     setProducts(output);
-  }, [selectedMenu, selectedCategories, selectedBrands, selectedModel]);
+  }, [gender, categories]);
 
   const openSubmenu = (text, coordinates) => {
-    const subData = getSubmenuItems(products, text);
     setNavText(text);
-    setSubmenuData(subData);
     setLocation(coordinates);
     setShowSubmenu(true);
   };
@@ -68,18 +56,10 @@ export const FilterProvider = ({ children }) => {
   return (
     <FilterContext.Provider
       value={{
-        selectedMenu,
-        setSelectedMenu,
-        selectedCategories,
-        setSelectedCategories,
-        selectedBrands,
-        setSelectedBrands,
-        selectedModel,
-        setSelectedModel,
         products,
+        dataCategories,
         searchValue,
         setSearchValue,
-        dataProducts,
         openSubmenu,
         closeSubmenu,
         openSidebar,
@@ -87,8 +67,12 @@ export const FilterProvider = ({ children }) => {
         showSidebar,
         showSubmenu,
         location,
-        submenuData,
         navText,
+        categories,
+        setCategories,
+        brands,
+        gender,
+        setGender,
       }}
     >
       {children}

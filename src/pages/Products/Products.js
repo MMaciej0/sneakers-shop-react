@@ -6,10 +6,10 @@ import SearchBar from '../../components/Products/SearchBar/SearchBar';
 import { useFilterContext } from '../../contexts/FilterContext/FilterContext';
 
 function Products() {
-  const { products } = useFilterContext();
+  const { products, closeSubmenu } = useFilterContext();
 
   return (
-    <div className="p-container">
+    <div className="p-container" onMouseOver={closeSubmenu}>
       <SearchBar />
       <div className="p-row">
         <div className="p-col">

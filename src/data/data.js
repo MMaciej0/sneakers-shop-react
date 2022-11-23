@@ -12,6 +12,13 @@ export const categories = {
     { name: 'outdoor', selected: false },
     { name: 'casual', selected: false },
   ],
+  all: [
+    { name: 'sport', selected: false },
+    { name: 'business', selected: false },
+    { name: 'outdoor', selected: false },
+    { name: 'premium', selected: false },
+    { name: 'casual', selected: false },
+  ],
 };
 
 export const brands = {

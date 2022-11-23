@@ -1,35 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
-const ToggleButton = ({ label, selectedValue, setSelectedValue }) => {
-  const [selected, setSelected] = useState(false);
-
-  useEffect(() => {
-    selectedValue.forEach((category) => {
-      if (category.toLowerCase() === label.toLowerCase()) {
-        console.log(label, category);
-        setSelected(true);
-      }
-    });
-  }, []);
+const ToggleButton = ({
+  name,
+  selected,
+  selectedNavText,
+  selectedValue,
+  setSelectedValue,
+}) => {
+  const [selectedCategory, setSelectedCategory] = useState(false);
 
   useEffect(() => {
-    if (!selected) {
-      setSelectedValue(
-        selectedValue.filter(
-          (category) => category.toLowerCase() !== label.toLowerCase()
-        )
-      );
+    if (selected === true) {
+      setSelectedCategory(true);
     } else {
-      setSelectedValue([...selectedValue, label]);
+      setSelectedCategory(false);
     }
   }, [selected]);
 
+  const handleClick = () => {
+    const selectedCat = selectedValue[selectedNavText].find(
+      (category) => category.name.toLowerCase() === name.toLowerCase()
+    );
+    if (selectedCat.selected === true) {
+      selectedCat.selected = false;
+    } else {
+      selectedCat.selected = true;
+    }
+
+    setSelectedValue((prevState) => {
+      return { ...prevState, ...selectedValue };
+    });
+  };
+
   return (
     <button
-      className={selected ? 'toggle-btn selected' : 'toggle-btn'}
-      onClick={() => setSelected(!selected)}
+      className={selectedCategory ? 'toggle-btn selected' : 'toggle-btn'}
+      onClick={handleClick}
     >
-      {label}
+      {name}
     </button>
   );
 };

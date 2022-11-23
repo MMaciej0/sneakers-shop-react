@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Slider.css';
 import Slider from 'react-slick';
-import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
+import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 const desktopSettings = {
   dots: true,
@@ -22,7 +22,7 @@ const mobileSettings = {
 };
 
 function Carousel({ slides }) {
-  const { closeSubmenu } = useGlobalContext();
+  const { closeSubmenu } = useFilterContext();
   const [isDesktop, setIsDesktop] = useState(window.innerWidth);
   const [settings, setSettings] = useState({});
 

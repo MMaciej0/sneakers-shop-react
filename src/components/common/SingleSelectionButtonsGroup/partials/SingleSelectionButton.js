@@ -1,14 +1,19 @@
 import React, { useEffect, useRef } from 'react';
 import './SingleToggleButton.css';
 
-const SingleSelectionButton = ({ label, setSelectedValue, selectedValue }) => {
+const SingleSelectionButton = ({
+  label,
+  value,
+  setSelectedValue,
+  selectedValue,
+}) => {
   const selectionBtn = useRef(null);
 
   useEffect(() => {
     const handler = (e) => {
       if (
         !selectionBtn.current.contains(e.target) &&
-        e.target.classList.contains('single toggle-btn')
+        e.target.classList.contains('single')
       ) {
         selectionBtn.current.classList.remove('selected');
       }
@@ -17,20 +22,21 @@ const SingleSelectionButton = ({ label, setSelectedValue, selectedValue }) => {
     return () => document.removeEventListener('click', handler);
   });
 
-  const handleClick = (label) => {
+  const handleClick = (value) => {
     selectionBtn.current.classList.add('selected');
-    setSelectedValue(label);
+    setSelectedValue(value);
   };
 
   return (
     <button
       className={
-        selectedValue.toLowerCase() === label.toLowerCase()
+        selectedValue.toLowerCase() === value.toLowerCase()
           ? 'single toggle-btn selected'
           : 'single toggle-btn'
       }
+      value={value}
       ref={selectionBtn}
-      onClick={() => handleClick(label)}
+      onClick={() => handleClick(value)}
     >
       {label}
     </button>

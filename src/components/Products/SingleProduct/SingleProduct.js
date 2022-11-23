@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './SingleProduct.css';
 import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
-import { findProduct } from '../../../utils/toGetProducts';
+import { findProduct } from '../../../utils/filters';
 import SizeBtn from './SizeBtn';
 
 function SingleProduct({ name, image, brand, price, _id, countInStock }) {

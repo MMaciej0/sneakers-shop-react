@@ -1,17 +1,10 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { FaChevronRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { useGlobalContext } from '../../../contexts/GlobalContext/GlobalContext';
 import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 function SubmenuBrandItem({ name, image, model }) {
-  const { location, navText } = useGlobalContext();
-  const {
-    setSelectedMenu,
-    setSelectedCategories,
-    setSelectedBrands,
-    setSelectedModel,
-  } = useFilterContext();
+  const { location, navText } = useFilterContext();
 
   const [open, setOpen] = useState(false);
   let toggleRef = useRef();
@@ -31,20 +24,12 @@ function SubmenuBrandItem({ name, image, model }) {
     setOpen(false);
   }, [location]);
 
-  const handleClick = (text, brand, model) => {
-    setSelectedMenu(text);
-    setSelectedCategories([]);
-    setSelectedBrands(brand);
-    setSelectedModel(model);
-  };
-
   return (
     <>
       <div className="item-container">
         <Link
           to={`/products`}
           className={open ? 'column-link highlight ' : 'column-link'}
-          onClick={() => handleClick(navText, [name], '')}
         >
           <img src={image} alt={name} /> {name}
         </Link>
@@ -61,11 +46,7 @@ function SubmenuBrandItem({ name, image, model }) {
       <div className={open ? 'models show' : 'models'}>
         {model.map((model, index) => {
           return (
-            <Link
-              to={`/products`}
-              key={index}
-              onClick={() => handleClick('', [], model)}
-            >
+            <Link to={`/products`} key={index}>
               {model}
             </Link>
           );

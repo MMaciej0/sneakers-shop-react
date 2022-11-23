@@ -2,16 +2,16 @@ import React from 'react';
 import SingleSelectionButton from './partials/SingleSelectionButton';
 
 const SingleSelectionButtonsGroup = ({
-  labels,
+  data,
   selectedValue,
   setSelectedValue,
 }) => {
   return (
     <div className="buttons-group__container">
-      {labels.map((label, index) => (
+      {data.map((item) => (
         <SingleSelectionButton
-          key={index}
-          label={label}
+          key={item.id}
+          {...item}
           selectedValue={selectedValue}
           setSelectedValue={setSelectedValue}
         />

@@ -1,17 +1,18 @@
 import React from 'react';
 import ToggleButton from './partials/ToggleButton';
 
-const ToggleButtonsGroup = ({ labels, selectedValue, setSelectedValue }) => {
+const ToggleButtonsGroup = ({ data, selectedNavText, setSelectedValue }) => {
   return (
     <div className="buttons-group__container">
-      {/* {labels.map((label, index) => (
+      {data[selectedNavText].map((item, index) => (
         <ToggleButton
           key={index}
-          label={label}
-          selectedValue={selectedValue}
+          {...item}
+          selectedNavText={selectedNavText}
+          selectedValue={data}
           setSelectedValue={setSelectedValue}
         />
-      ))} */}
+      ))}
     </div>
   );
 };
