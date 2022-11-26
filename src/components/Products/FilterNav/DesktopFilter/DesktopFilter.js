@@ -3,6 +3,7 @@ import './DesktopFilter.css';
 import { useFilterContext } from '../../../../contexts/FilterContext/FilterContext';
 import SingleSelectionButtonsGroup from '../../../common/SingleSelectionButtonsGroup/SingleSelectionButtonsGroup';
 import ToggleButtonsGroup from '../../../common/ToggleButtonsGroup/ToggleButtonsGroup';
+import CheckboxButtonsGroup from '../../../common/CheckboxButtonsGroup/CheckboxButtonsGroup';
 
 function DesktopFilter() {
   const {
@@ -14,11 +15,6 @@ function DesktopFilter() {
     brands,
     setBrands,
   } = useFilterContext();
-
-  useEffect(() => {
-    const newCategories = JSON.parse(JSON.stringify(dataCategories));
-    setCategories(newCategories);
-  }, [gender]);
 
   return (
     <div className="df__container">
@@ -34,20 +30,20 @@ function DesktopFilter() {
           setSelectedValue={setGender}
         />
       </div>
-      <div className="dr__row">
+      {/* <div className="dr__row">
         <h3>Categories:</h3>
         <ToggleButtonsGroup
           data={categories}
           selectedNavText={gender}
           setSelectedValue={setCategories}
         />
-      </div>
+      </div> */}
       <div className="dr__row">
         <h3>Brands:</h3>
-        <ToggleButtonsGroup
-          data={categories}
+        <CheckboxButtonsGroup
+          data={brands}
           selectedNavText={gender}
-          setSelectedValue={setCategories}
+          setSelectedValue={setBrands}
         />
       </div>
     </div>

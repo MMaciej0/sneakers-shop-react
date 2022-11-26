@@ -1,8 +1,8 @@
 import React, { useContext, useState, useEffect } from 'react';
 import {
   products as dataProducts,
-  categories as dataCategories,
-  brands as dataBrands,
+  categoriesDB,
+  brandsDB,
 } from '../../data/data';
 import { getProductsBySex, forEachFilter } from '../../utils/filters';
 
@@ -14,8 +14,8 @@ export const FilterProvider = ({ children }) => {
   const [location, setLocation] = useState({});
   const [navText, setNavText] = useState('');
   const [gender, setGender] = useState('all');
-  const [categories, setCategories] = useState(dataCategories);
-  const [brands, setbrands] = useState(dataBrands);
+  const [categories, setCategories] = useState(categoriesDB);
+  const [brands, setBrands] = useState(brandsDB);
   const [model, setModel] = useState('');
   const [searchValue, setSearchValue] = useState('');
   const [products, setProducts] = useState([]);
@@ -31,9 +31,8 @@ export const FilterProvider = ({ children }) => {
       }
     }
 
-    console.log(categories);
     setProducts(output);
-  }, [gender, categories]);
+  }, [gender, categories, brands, model]);
 
   const openSubmenu = (text, coordinates) => {
     setNavText(text);
@@ -57,7 +56,6 @@ export const FilterProvider = ({ children }) => {
     <FilterContext.Provider
       value={{
         products,
-        dataCategories,
         searchValue,
         setSearchValue,
         openSubmenu,
@@ -71,8 +69,10 @@ export const FilterProvider = ({ children }) => {
         categories,
         setCategories,
         brands,
+        setBrands,
         gender,
         setGender,
+        setModel,
       }}
     >
       {children}

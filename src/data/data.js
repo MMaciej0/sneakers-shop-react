@@ -1,4 +1,4 @@
-export const categories = {
+export const categoriesDB = {
   man: [
     { name: 'sport', selected: false },
     { name: 'business', selected: false },
@@ -21,7 +21,7 @@ export const categories = {
   ],
 };
 
-export const brands = {
+export const brandsDB = {
   man: [
     {
       id: '623457',
@@ -93,6 +93,50 @@ export const brands = {
       image: '/images/adidas-logo.svg',
       model: ['MULTIX'],
       name: 'adidas',
+      selected: false,
+    },
+  ],
+  all: [
+    {
+      id: '623457',
+      image: '/images/emporio-armani-logo.png',
+      model: ['SUPER DELUX'],
+      name: 'EA7',
+      selected: false,
+    },
+    {
+      id: '111111111',
+      image: '/images/nike-logo.webp',
+      model: ['REPOSTO'],
+      name: 'Nike',
+      selected: false,
+    },
+    {
+      id: '222222222222222',
+      image: '/images/lacoste-logo.jpg',
+      model: ['CROCOS', 'CROCOSSSS'],
+      name: 'Lacoste',
+      selected: false,
+    },
+    {
+      id: '323451',
+      image: '/images/salomon-logo.svg',
+      model: ['XT-WINGS 2'],
+      name: 'Salomon',
+      selected: false,
+    },
+    {
+      id: '46479',
+      image: '/images/adidas-logo.svg',
+      model: ['MULTIX'],
+      name: 'adidas',
+      selected: false,
+    },
+    {
+      id: '59999976',
+      image: '/images/puma-logo.jpg',
+      model: ['NUCLEUS'],
+      name: 'Puma',
       selected: false,
     },
   ],

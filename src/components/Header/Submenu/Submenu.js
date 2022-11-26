@@ -1,20 +1,13 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './Submenu.css';
 import { Link } from 'react-router-dom';
+import './Submenu.css';
+import { categoriesDB, brandsDB } from '../../../data/data';
 import SubmenuBrandItem from './SubmenuBrandItem';
 import { useFilterContext } from '../../../contexts/FilterContext/FilterContext';
 
 function Submenu() {
-  const {
-    showSubmenu,
-    location,
-    navText,
-    categories,
-    setCategories,
-    dataCategories,
-    brands,
-    setGender,
-  } = useFilterContext();
+  const { showSubmenu, location, navText, setCategories, setGender, setModel } =
+    useFilterContext();
 
   const container = useRef(null);
   const [columns, setColumns] = useState('col-2');
@@ -29,11 +22,12 @@ function Submenu() {
 
   const handleSelectCategory = (cat, text) => {
     // from menu user can only select one category
-    const newCategories = JSON.parse(JSON.stringify(dataCategories));
+    const newCategories = JSON.parse(JSON.stringify(categoriesDB));
     const selectedCategory = newCategories[text].find(
       (category) => category.name.toLowerCase() === cat.toLowerCase()
     );
     selectedCategory.selected = true;
+    setModel('');
     setGender(text);
     setCategories(newCategories);
   };
@@ -47,7 +41,7 @@ function Submenu() {
         <div className="submenu-column">
           <h4>Categories</h4>
           {navText &&
-            categories[navText].map((item, index) => {
+            categoriesDB[navText].map((item, index) => {
               return (
                 <div key={index} className="item-container">
                   <Link
@@ -64,7 +58,7 @@ function Submenu() {
         <div className="submenu-column">
           <h4>Brands</h4>
           {navText &&
-            brands[navText].map((brand, index) => {
+            brandsDB[navText].map((brand, index) => {
               return <SubmenuBrandItem key={index} {...brand} />;
             })}
         </div>

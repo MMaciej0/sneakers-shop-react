@@ -8,7 +8,8 @@ import { Link, NavLink } from 'react-router-dom';
 
 function Navbar() {
   const { amount } = useGlobalContext();
-  const { openSidebar, openSubmenu, closeSubmenu } = useFilterContext();
+  const { openSidebar, openSubmenu, closeSubmenu, setGender, setModel } =
+    useFilterContext();
 
   const displaySubmenu = (e) => {
     const btnText = e.target.textContent;
@@ -27,6 +28,11 @@ function Navbar() {
     }
   };
 
+  const handleSelectGender = (gender) => {
+    setGender(gender);
+    setModel('');
+  };
+
   return (
     <nav className="nav" onMouseOver={handleSubmenu}>
       <div className="nav-center">
@@ -43,6 +49,7 @@ function Navbar() {
             to="/products"
             className="link-btn"
             onMouseOver={displaySubmenu}
+            onClick={() => handleSelectGender('man')}
           >
             man
           </NavLink>
@@ -50,6 +57,7 @@ function Navbar() {
             to="/products"
             className="link-btn"
             onMouseOver={displaySubmenu}
+            onClick={() => handleSelectGender('woman')}
           >
             woman
           </NavLink>

@@ -1,0 +1,21 @@
+@import url('../../../globalStyles/custom.css');
+
+.checkbox__container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  font-size: 2rem;
+  padding-block: 1rem;
+}
+
+.checkbox__container label {
+  width: 100%;
+}
+
+.checkbox__container:hover {
+  background-color: hsl(var(--orange-primary));
+}
+
+.checkbox__container * {
+  margin-right: 2rem;
+}

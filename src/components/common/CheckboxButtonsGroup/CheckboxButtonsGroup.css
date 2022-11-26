@@ -1,0 +1,6 @@
+.checkbox__list {
+  padding: 1rem;
+  height: 250px;
+  overflow-y: scroll;
+  scrollbar-width: 0.5rem;
+}

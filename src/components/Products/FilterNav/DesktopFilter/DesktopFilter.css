@@ -1,7 +1,10 @@
+@import url('../../../../globalStyles/custom.css');
+
 .df__container {
-  border: 1px solid black;
+  border-right: 2px solid hsl(var(--dark-grayish-blue), 0.4);
   width: 100%;
   height: 100%;
+  padding-right: 2rem;
 }
 
 .dr__row h3 {
